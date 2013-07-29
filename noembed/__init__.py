@@ -9,7 +9,7 @@ class NoEmbed(object):
     def __init__(self, endpoint_url=NOEMBED_ENDPOINT_URL):
         self.endpoint_url = endpoint_url
 
-    def build_payload(self, url, max_width, max_height):
+    def build_payload(self, url, max_width=None, max_height=None):
         payload = {'url': url}
         if max_width:
             payload['maxwidth'] = max_width
