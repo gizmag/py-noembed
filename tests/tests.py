@@ -70,3 +70,15 @@ class NoEmbedTests(TestCase):
         noembed.embed(self.example_url)
 
         mock_noembed_response.assert_called_once_with({'foo': 'bar'})
+
+class NoEmbedResponseTests(TestCase):
+    def test_data_put_in_private_argument_on_init(self):
+        data = {'a': 1, 'b': 2, 'c': 3}
+        resp = noembed.NoEmbedResponse(data)
+        self.assertEqual(data, resp._data)
+
+    def test_data_items_set_as_attributes_on_init(self):
+        data = {'a': 1, 'b': 2, 'c': 3}
+        resp = noembed.NoEmbedResponse(data)
+        for key, value in data.items():
+            self.assertEqual(resp.__getattribute__(key), value)
