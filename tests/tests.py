@@ -87,6 +87,6 @@ class NoEmbedResponseTests(TestCase):
 class EmbedTests(TestCase):
     @patch('noembed.NoEmbed.embed')
     def test_embed_function_passes_all_args_and_kwargs_to_a_noembed_instances_embed_method(self, mock_noembed):
-        noembed.embed('http://example.com', max_width=100, ax_height=100)
+        noembed.embed('http://example.com', max_width=100, max_height=100)
 
-        mock_noembed.assert_called_once_with('http://example.com', max_width=100, ax_height=100)
+        mock_noembed.assert_called_once_with('http://example.com', max_width=100, max_height=100)
